@@ -4,20 +4,31 @@ public class Player {
     private String name;
     private Board board;
 
-    public Player(String name, Board board){
+    public Player(String name, Board board) {
         setName(name);
-        this.board = new Board();
-    }
-
-    private void setShip(int x, int y) {
-        board.setShip(x, y);
-    }
-
-    private String hit(int x, int y) {
-        return board.hit(x, y);
+        setBoard(board);
     }
 
     private void setName(String name) {
-        
+        if (name == null || name.equals("")) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public boolean attack(Player opponent, int x, int y) {
+        opponent.board.hit(x, y);
+        if (opponent.board.isGameOver()) {
+            return true;
+        }
+        return false;
     }
 }
