@@ -23,9 +23,7 @@ public class Main {
 
         // Draw boards
         board1.drawBoard();
-        System.out.println();
         board2.drawBoard();
-        System.out.println();
 
         // Place ships on boards
         board1.placeShip(ship1);
@@ -46,9 +44,7 @@ public class Main {
 
         // Draw boards
         board1.drawBoard();
-        System.out.println();
         board2.drawBoard();
-        System.out.println();
 
     }
 }
